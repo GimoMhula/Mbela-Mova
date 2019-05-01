@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import mz.co.mm_consultoria.mbelamova.R;
+import mz.co.mm_consultoria.mbelamova.managers.EditTextManager;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText numeroTelefone;
@@ -27,6 +28,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void createViews() {
+        EditTextManager editTextManager = new EditTextManager(getApplicationContext());
+        
         numeroTelefone = findViewById(R.id.edit_text_login_numero_telefone);
         password = findViewById(R.id.edit_text_login_password);
         lembrar = findViewById(R.id.checkbox_login_lembrar);
