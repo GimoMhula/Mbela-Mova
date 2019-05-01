@@ -13,4 +13,28 @@
     <string name="passageiro_apelido">apelido</string>
     <string name="passageiro_saldo_corrente">saldo_corrente</string>
 
+    <!--Login Activity-->
+    <string name="n_mero_de_telefone">Número de telefone</string>
+    <string name="palavra_passe">Palavra-passe</string>
+    <string name="entrar">Entrar</string>
+    <string name="ainda_n_o_tem_uma_conta">Ainda não tem uma conta?</string>
+    <string name="cannot_be_empty">Não pode estar vazio.</string>
+
+    <!--NavDrawe-->
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="title_activity_nav">NavActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
 </resources>
