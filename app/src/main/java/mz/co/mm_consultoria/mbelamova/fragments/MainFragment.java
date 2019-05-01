@@ -3,15 +3,12 @@ package mz.co.mm_consultoria.mbelamova.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -24,13 +21,12 @@ import mz.co.mm_consultoria.mbelamova.managers.EditTextManager;
 import mz.co.mm_consultoria.mbelamova.managers.FragmentManager;
 import mz.co.mm_consultoria.mbelamova.managers.SharedPreferencesManager;
 import mz.co.mm_consultoria.mbelamova.models.ContaPassageiro;
-import mz.co.mm_consultoria.mbelamova.models.Passageiro;
 
 public class MainFragment extends ModelOnlineFragment implements View.OnClickListener{
     private EditText numeroTelefone;
     private EditText password;
     private CheckBox lembrar;
-    private ImageButton entrar;
+    private Button entrar;
     private Button registar;
     private EditTextManager editTextManager;
     private FragmentManager fragmentManager;
@@ -58,18 +54,15 @@ public class MainFragment extends ModelOnlineFragment implements View.OnClickLis
         password = view.findViewById(R.id.edit_text_login_password);
         lembrar = view.findViewById(R.id.checkbox_login_lembrar);
 
-        createAndSetListener(entrar, R.id.button_login_entrar);
-        createAndSetListener(registar, R.id.button_login_registar);
+        entrar = view.findViewById(R.id.button_login_entrar);
+        entrar.setOnClickListener(this);
+        registar = view.findViewById(R.id.button_login_registar);
+        registar.setOnClickListener(this);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_main, container, false);
-    }
-
-    private void createAndSetListener(View view, int id){
-        view = view.findViewById(id);
-        view.setOnClickListener(this);
     }
 
     @Override
