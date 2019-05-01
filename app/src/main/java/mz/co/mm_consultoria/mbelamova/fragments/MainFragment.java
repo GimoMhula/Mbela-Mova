@@ -82,6 +82,8 @@ public class MainFragment extends ModelOnlineFragment implements View.OnClickLis
                                             sharedPreferencesManager.adicionarPassageiroConta(contaPassageiro);
                                         }
                                         startNewTaskActivity(MainActivity.class);
+                                    }else{
+                                        showMessage(getString(R.string.text_login_falha));
                                     }
                                 }
                             })
