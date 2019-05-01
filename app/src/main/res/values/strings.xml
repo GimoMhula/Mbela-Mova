@@ -6,6 +6,8 @@
     <string name="motorista_collection">Motoristas</string>
     <string name="caro_collection">Caros</string>
     <string name="viagem_collection">Viagens</string>
+    <!--Fields-->
+    <string name="field_numero_telefone">numeroTelefone</string>
 
     <!--SharedPrefs-->
     <string name="passageiro_numeroTelefone">numeroTelefone</string>
@@ -14,13 +16,18 @@
     <string name="passageiro_saldo_corrente">saldo_corrente</string>
 
     <!--Login Activity-->
-    <string name="n_mero_de_telefone">Número de telefone</string>
-    <string name="palavra_passe">Palavra-passe</string>
-    <string name="entrar">Entrar</string>
-    <string name="ainda_n_o_tem_uma_conta">Ainda não tem uma conta?</string>
+    <string name="text_n_mero_de_telefone">Número de telefone</string>
+    <string name="text_palavra_passe">Palavra-passe</string>
+    <string name="text_entrar">Entrar</string>
+    <string name="text_ainda_n_o_tem_uma_conta">Ainda não tem uma conta?</string>
+    <!--Errors-->
+    <string name="numero_telefone_invalido">Número de telefone inválido.</string>
+    <string name="status_verification_failed">Falha na verificação.</string>
+    <string name="status_verification_succeeded">Verificação sucedida.</string>
+    <string name="status_sign_in_failed">O inicio de sessão falhou.</string>
     <string name="cannot_be_empty">Não pode estar vazio.</string>
 
-    <!--NavDrawe-->
+    <!--NavDrawer-->
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
@@ -36,5 +43,8 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

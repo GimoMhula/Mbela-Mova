@@ -14,12 +14,16 @@ public class EditTextManager {
         this.context=context;
     }
 
-    public void checkEmptyFields(EditText... editTexts) {
+    public boolean hasEmptyFields(EditText... editTexts) {
+        boolean hasEmptyField = false;
         for (EditText editText : editTexts) {
             if(TextUtils.isEmpty(getEditTextString(editText))){
                 editText.setError(getEmptyError());
+                hasEmptyField = true;
+                break;
             }
         }
+        return hasEmptyField;
     }
 
     public String getEditTextString(EditText editText){

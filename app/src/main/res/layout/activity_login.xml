@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="@string/app_name"
             android:gravity="center"
             android:textSize="40sp"
             android:textStyle="italic"
@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:hint="@string/palavra_passe"
+                android:hint="@string/text_palavra_passe"
                 android:inputType="textPassword"
                 android:maxLength="24"
                 android:id="@+id/edit_text_login_password"
@@ -64,21 +64,29 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/entrar"
+            android:text="@string/text_entrar"
             android:textSize="16sp"
             android:backgroundTint="@color/colorPrimary"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:layout_marginBottom="20dp"
             android:id="@+id/button_login_entrar"
             />
+
+        <CheckBox
+            android:id="@+id/checkbox_login_lembrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Lembrar"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ainda_n_o_tem_uma_conta"
+            android:text="@string/text_ainda_n_o_tem_uma_conta"
             android:textSize="16sp"
             android:backgroundTint="@color/colorPrimary"
             android:paddingLeft="20dp"

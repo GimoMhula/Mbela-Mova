@@ -19,6 +19,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private CheckBox lembrar;
     private ImageButton entrar;
     private Button registar;
+    private EditTextManager editTextManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +29,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void createViews() {
-        EditTextManager editTextManager = new EditTextManager(getApplicationContext());
+        editTextManager = new EditTextManager(getApplicationContext());
 
         numeroTelefone = findViewById(R.id.edit_text_login_numero_telefone);
         password = findViewById(R.id.edit_text_login_password);
-//        lembrar = findViewById(R.id.checkbox_login_lembrar);
+        lembrar = findViewById(R.id.checkbox_login_lembrar);
 
         createAndSetListener(entrar, R.id.button_login_entrar);
         createAndSetListener(registar, R.id.button_login_registar);
@@ -42,7 +43,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.button_login_entrar:
-                startActivityByClass(MainActivity.class);
+                if(!editTextManager.hasEmptyFields(numeroTelefone, password)){
+                    startActivityByClass(MainActivity.class);
+                }
                 break;
         }
     }
