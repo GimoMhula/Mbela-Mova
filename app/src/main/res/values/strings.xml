@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Mbela Mova</string>
+
+    <!--Database-->
+    <string name="passageiro_collection">Passageiros</string>
+    <string name="motorista_collection">Motoristas</string>
+    <string name="caro_collection">Caros</string>
+    <string name="viagem_collection">Viagens</string>
+
+    <!--SharedPrefs-->
+    <string name="passageiro_numeroTelefone">numeroTelefone</string>
+    <string name="passageiro_nome">nome</string>
+    <string name="passageiro_apelido">apelido</string>
+    <string name="passageiro_saldo_corrente">saldo_corrente</string>
+
+</resources>

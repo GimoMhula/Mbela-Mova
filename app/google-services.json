@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "532609465595",
+    "firebase_url": "https://mbela-mova.firebaseio.com",
+    "project_id": "mbela-mova",
+    "storage_bucket": "mbela-mova.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532609465595:android:5c84581ea99cf42a",
+        "android_client_info": {
+          "package_name": "mz.co.mm_consultoria.mbelamova"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532609465595-b0di24glu5caasdehalldrmdpdln7anl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mz.co.mm_consultoria.mbelamova",
+            "certificate_hash": "6c2caab723e918fdf176496c6bd3a594d0298fc0"
+          }
+        },
+        {
+          "client_id": "532609465595-md0m4be5dbu2s3p838rnstrk6rd7qkp0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwg_vZ1laXEZKSjpxAd98CWNzlh1q3908"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532609465595-md0m4be5dbu2s3p838rnstrk6rd7qkp0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
