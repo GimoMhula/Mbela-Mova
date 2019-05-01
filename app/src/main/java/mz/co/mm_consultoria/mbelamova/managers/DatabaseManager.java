@@ -19,8 +19,8 @@ public class DatabaseManager {
     }
 
     //Set objects
-    public void nova(Passageiro passageiro){
-        db.collection(getPassageirosCollection()).document().set(passageiro);
+    public Task<Void> addPassageiro(Passageiro passageiro){
+         return db.collection(getPassageirosCollection()).document().set(passageiro);
     }
 
     //GetByQuery

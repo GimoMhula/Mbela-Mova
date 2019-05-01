@@ -8,55 +8,29 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import mz.co.mm_consultoria.mbelamova.R;
+import mz.co.mm_consultoria.mbelamova.fragments.RegistoDadosFragment;
 import mz.co.mm_consultoria.mbelamova.managers.EditTextManager;
+import mz.co.mm_consultoria.mbelamova.managers.FragmentManager;
+import mz.co.mm_consultoria.mbelamova.managers.SharedPreferencesManager;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
-    private EditText numeroTelefone;
-    private EditText password;
-    private CheckBox lembrar;
-    private ImageButton entrar;
-    private Button registar;
-    private EditTextManager editTextManager;
-
+public class LoginActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferencesManager sharedPreferencesManager = new SharedPreferencesManager(getApplicationContext());
+        if(sharedPreferencesManager.getPassageiro().getContaPassageiro().getPalavra_passe()!=null)
+            startActivityNoAnimation(MainActivity.class);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        createViews();
-    }
-
-    private void createViews() {
-        editTextManager = new EditTextManager(getApplicationContext());
-
-        numeroTelefone = findViewById(R.id.edit_text_login_numero_telefone);
-        password = findViewById(R.id.edit_text_login_password);
-        lembrar = findViewById(R.id.checkbox_login_lembrar);
-
-        createAndSetListener(entrar, R.id.button_login_entrar);
-        createAndSetListener(registar, R.id.button_login_registar);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.button_login_entrar:
-                if(!editTextManager.hasEmptyFields(numeroTelefone, password)){
-                    startActivityByClass(MainActivity.class);
-                }
-                break;
-        }
     }
 
     //AUXILIO
-    private void createAndSetListener(View view, int id){
-        view = findViewById(id);
-        view.setOnClickListener(this);
-    }
-    private void startActivityByClass(Class activityClass){
+    private void startActivityNoAnimation(Class activityClass){
         Intent i = new Intent(getApplicationContext(), activityClass);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
+        overridePendingTransition(0,0);
     }
 }

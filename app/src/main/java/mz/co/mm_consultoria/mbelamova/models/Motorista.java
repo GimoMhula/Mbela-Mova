@@ -6,4 +6,5 @@ public class Motorista extends Passageiro{
     private String caro;
     private boolean estado;
     private GeoPoint localizacao;
+
 }

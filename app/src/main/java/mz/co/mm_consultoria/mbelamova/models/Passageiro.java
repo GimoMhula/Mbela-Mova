@@ -1,14 +1,14 @@
 package mz.co.mm_consultoria.mbelamova.models;
 
 public class Passageiro {
-    private int numeroTelefone;
-    private String palavra_passe;
+    private ContaPassageiro contaPassageiro;
     private String nome;
     private String apelido;
-    private String bi;
-    private String morada;
     private String genero;
+    private String dataNascimento;
 
+    private double saldo_corrente;
+    private double saldo_total;
     //null
     private boolean permitido;
     private double classificacao;
@@ -17,46 +17,32 @@ public class Passageiro {
     public Passageiro() {
     }
 
-    public Passageiro(int numeroTelefone, String palavra_passe, String nome, String apelido, String bi, String morada, String genero) {
-        this.numeroTelefone = numeroTelefone;
-        this.palavra_passe = palavra_passe;
+    public Passageiro(String nome, String apelido, String genero, String dataNascimento) {
         this.nome = nome;
         this.apelido = apelido;
-        this.bi = bi;
-        this.morada = morada;
         this.genero = genero;
-        this.permitido=true;
-        this.classificacao=5;
-        this.numeroTotalViagens=0;
+        this.dataNascimento = dataNascimento;
     }
 
-    public Passageiro(int numeroTelefone, String palavra_passe, String nome, String apelido, String bi, String morada, String genero, boolean permitido, double classificacao, int numeroTotalViagens) {
-        this.numeroTelefone = numeroTelefone;
-        this.palavra_passe = palavra_passe;
+    public Passageiro(ContaPassageiro contaPassageiro, String nome, String apelido, String genero, String dataNascimento, double saldo_corrente, double saldo_total, boolean permitido, double classificacao, int numeroTotalViagens) {
+        this.contaPassageiro = contaPassageiro;
         this.nome = nome;
         this.apelido = apelido;
-        this.bi = bi;
-        this.morada = morada;
         this.genero = genero;
+        this.dataNascimento = dataNascimento;
+        this.saldo_corrente = saldo_corrente;
+        this.saldo_total = saldo_total;
         this.permitido = permitido;
         this.classificacao = classificacao;
         this.numeroTotalViagens = numeroTotalViagens;
     }
 
-    public int getNumeroTelefone() {
-        return numeroTelefone;
+    public ContaPassageiro getContaPassageiro() {
+        return contaPassageiro;
     }
 
-    public void setNumeroTelefone(int numeroTelefone) {
-        this.numeroTelefone = numeroTelefone;
-    }
-
-    public String getPalavra_passe() {
-        return palavra_passe;
-    }
-
-    public void setPalavra_passe(String palavra_passe) {
-        this.palavra_passe = palavra_passe;
+    public void setContaPassageiro(ContaPassageiro contaPassageiro) {
+        this.contaPassageiro = contaPassageiro;
     }
 
     public String getNome() {
@@ -75,28 +61,36 @@ public class Passageiro {
         this.apelido = apelido;
     }
 
-    public String getBi() {
-        return bi;
-    }
-
-    public void setBi(String bi) {
-        this.bi = bi;
-    }
-
-    public String getMorada() {
-        return morada;
-    }
-
-    public void setMorada(String morada) {
-        this.morada = morada;
-    }
-
     public String getGenero() {
         return genero;
     }
 
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public double getSaldo_corrente() {
+        return saldo_corrente;
+    }
+
+    public void setSaldo_corrente(double saldo_corrente) {
+        this.saldo_corrente = saldo_corrente;
+    }
+
+    public double getSaldo_total() {
+        return saldo_total;
+    }
+
+    public void setSaldo_total(double saldo_total) {
+        this.saldo_total = saldo_total;
     }
 
     public boolean isPermitido() {

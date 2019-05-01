@@ -14,18 +14,34 @@
     <string name="passageiro_nome">nome</string>
     <string name="passageiro_apelido">apelido</string>
     <string name="passageiro_saldo_corrente">saldo_corrente</string>
+    <string name="passageiro_data_nascimento">dataNascimento</string>
+    <string name="passageiro_genero">passageiro_genero</string>
 
     <!--Login Activity-->
     <string name="text_n_mero_de_telefone">Número de telefone</string>
     <string name="text_palavra_passe">Palavra-passe</string>
     <string name="text_entrar">Entrar</string>
     <string name="text_ainda_n_o_tem_uma_conta">Ainda não tem uma conta?</string>
+    <string name="text_qual_o_seu_n_mero_de_telefone">Qual é o seu número de telefone?</string>
+    <string name="text_o_seu_n_mero_ser_utilizado_para_iniciar_a_sess_o_e_permitir_o_recarregamento_do_seu_saldo_no_mpesa">O seu número será utilizado para iniciar a sessão e permitir o recarregamento do seu saldo no mpesa</string>
+    <string name="text_apelido">Apelido</string>
+    <string name="text_nome">Nome</string>
+    <string name="text_quem_voc">Quem é você?</string>
+    <string name="text_os_motoristas_confirmar_o_sua_presen_a_quando_eles_forem_acionados">Os motoristas confirmarão sua presença quando eles forem acionados</string>
+
     <!--Errors-->
     <string name="numero_telefone_invalido">Número de telefone inválido.</string>
     <string name="status_verification_failed">Falha na verificação.</string>
     <string name="status_verification_succeeded">Verificação sucedida.</string>
     <string name="status_sign_in_failed">O inicio de sessão falhou.</string>
     <string name="cannot_be_empty">Não pode estar vazio.</string>
+
+    <string name="text_registro_falha">Falha no registo. Por favor, tente novamente.</string>
+    <string name="text_login_falha">Falha no login. Por favor, tente novamente.</string>
+
+
+    <string name="no_internet_conection">Sem conexão a internet.</string>
+    <string name="text_loading">A carregar...</string>
 
     <!--NavDrawer-->
     <string name="menu_home">Home</string>
@@ -44,7 +60,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -19,6 +19,7 @@ public class EditTextManager {
         for (EditText editText : editTexts) {
             if(TextUtils.isEmpty(getEditTextString(editText))){
                 editText.setError(getEmptyError());
+                editText.requestFocus();
                 hasEmptyField = true;
                 break;
             }
