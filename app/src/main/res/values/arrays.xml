@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string-array name="genero">
         <item>Masculino</item>
         <item>Feminino</item>
     </string-array>
+
+    <string-array name="cor">
+        <item>Branco</item>
+        <item>Preto</item>
+        <item>Prata</item>
+        <item>Cinzento</item>
+        <item>Vermelho</item>
+        <item>Marrom</item>
+        <item>Amarelo</item>
+        <item>Lima</item>
+        <item>Verde</item>
+        <item>Aqua</item>
+        <item>Cerceta</item>
+        <item>Azul</item>
+        <item>Vermelho</item>
+        <item>Marinha</item>
+        <item>Fúcsia</item>
+        <item>Roxo</item>
+    </string-array>
+
+    <string-array name="combustivel">
+        <item>Gasolina</item>
+        <item>Etanol</item>
+        <item>Diesel</item>
+        <item>Gás Natural (GNV)</item>
+        <item>Eletricidade</item>
+    </string-array>
+
 </resources>

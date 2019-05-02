@@ -1,8 +1,8 @@
 package mz.co.mm_consultoria.mbelamova.activites;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -11,58 +11,55 @@ import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import mz.co.mm_consultoria.mbelamova.R;
-import mz.co.mm_consultoria.mbelamova.fragments.PassageiroMapaFragment;
+import mz.co.mm_consultoria.mbelamova.managers.DatabaseManager;
 import mz.co.mm_consultoria.mbelamova.managers.SharedPreferencesManager;
 import mz.co.mm_consultoria.mbelamova.models.Passageiro;
 
-public class MainActivity extends FragmentedActivity
+public class MotoristaActivity extends FragmentedActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private SharedPreferencesManager manager;
     private TextView nome_completo;
     private TextView saldo_corrente;
-
-    public MainActivity() {}
+    private DatabaseManager databaseManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_motorista);
         createViews();
     }
 
     private void createViews() {
-        Toolbar toolbar = findViewById(R.id.toolbar_passageiro);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         manager = new SharedPreferencesManager(getApplicationContext());
+        databaseManager = new DatabaseManager(getApplicationContext());
         setupNavDrawer(toolbar);
-        displayFragment(new PassageiroMapaFragment(), R.id.content_main_passageiros_layout);
     }
 
     private void setupNavDrawer(Toolbar toolbar) {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout_passageiro);
-        NavigationView navigationView = findViewById(R.id.nav_view_passageiro);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout_motorista);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        Passageiro passageiro = manager.getPassageiro();//Buscar passageiro do SharedPrefs
+        Passageiro passageiro = manager.getPassageiro();//Buscar motorista do SharedPrefs
         View headerView =  navigationView.getHeaderView(0);
-        nome_completo = headerView.findViewById(R.id.nav_header_nome_completo);
+        nome_completo = headerView.findViewById(R.id.nav_header_nome_completo_motorista);
         nome_completo.setText(passageiro.getNome()+" "+passageiro.getApelido());
-        saldo_corrente = headerView.findViewById(R.id.nav_header_saldo_corrente);
+        saldo_corrente = headerView.findViewById(R.id.nav_header_saldo_corrente_motorista);
         saldo_corrente.setText("Saldo: "+passageiro.getSaldo_corrente()+" MT");
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout_passageiro);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout_motorista);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -72,7 +69,7 @@ public class MainActivity extends FragmentedActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.motorista, menu);
         return true;
     }
 
@@ -89,29 +86,25 @@ public class MainActivity extends FragmentedActivity
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.nav_pagina_inicial:
+        switch (item.getItemId()) {
+            case R.id.nav_pagina_inicial_motorista:
                 break;
-            case R.id.nav_historico:
+            case R.id.nav_historico_motorista:
                 break;
-            case R.id.nav_recarregar_mpesa:
+            case R.id.nav_recarregar_mpesa_motorista:
                 break;
-            case R.id.nav_promocao:
+            case R.id.nav_promocao_motorista:
                 break;
-            case R.id.nav_configuracao:
+            case R.id.nav_configuracao_motorista:
                 break;
-            case R.id.nav_dar_boleia:
-                if(manager.getCarro().getMatricula()==null){
-                    startActivity(new Intent(getApplicationContext(), RegistoCaroActivity.class));
-                }else{
-                    startActivityByClass(MotoristaActivity.class);
-                }
+            case R.id.nav_pedir_boleia:
+                databaseManager.changeMotoristaEstado();
+                startActivityByClass(MainActivity.class);
                 break;
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout_passageiro);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout_motorista);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 }

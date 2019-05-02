@@ -1,12 +1,20 @@
 package mz.co.mm_consultoria.mbelamova.managers;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 
 import mz.co.mm_consultoria.mbelamova.R;
+import mz.co.mm_consultoria.mbelamova.models.Caro;
+import mz.co.mm_consultoria.mbelamova.models.ContaPassageiro;
+import mz.co.mm_consultoria.mbelamova.models.Motorista;
 import mz.co.mm_consultoria.mbelamova.models.Passageiro;
 
 public class DatabaseManager {
@@ -19,13 +27,30 @@ public class DatabaseManager {
     }
 
     //Set objects
-    public Task<Void> addPassageiro(Passageiro passageiro){
-         return db.collection(getPassageirosCollection()).document().set(passageiro);
+    public Task<DocumentReference> addNewPassageiro(Passageiro passageiro){
+        return db.collection(getPassageirosCollection()).add(passageiro);
+    }
+    public Task<DocumentReference> addNewCaro(Caro caro){
+        return db.collection(getCaroCollection()).add(caro);
+    }
+    public Task<DocumentReference> addNewMotorista(Motorista motorista){
+        return db.collection(getMotoristaCollection()).add(motorista);
+    }
+    //GetByQuery
+    public Task<QuerySnapshot> getPassageiroByConta(ContaPassageiro contaPassageiro){
+        return db.collection(getPassageirosCollection()).whereEqualTo(getConta(), contaPassageiro).get();
     }
 
-    //GetByQuery
-    public Task<QuerySnapshot> getPassageiroByNumeroTelefone(int numeroTelefone){
-        return db.collection(getPassageirosCollection()).whereEqualTo(getNumeroTelefoneField(), numeroTelefone).get();
+    public DocumentReference getPassageiroOnlineDocumentReference(){
+        SharedPreferencesManager sharedPreferencesManager = new SharedPreferencesManager(context);
+        return db.collection(getPassageirosCollection()).document(sharedPreferencesManager.getPassageiroDocumentIdSharedPrefs());
+    }
+
+    public void changeMotoristaEstado(){
+        SharedPreferencesManager sharedPreferencesManager = new SharedPreferencesManager(context);
+        Motorista motorista = new Motorista();
+        motorista.setEstado(false);
+        db.collection(getMotoristaCollection()).document(sharedPreferencesManager.getMotoristaDocumentIdSharedPrefs()).set(motorista, SetOptions.merge());
     }
 
     //AUXILIO
@@ -35,6 +60,10 @@ public class DatabaseManager {
     }
 
     //Fields
+    //Field Object
+    private String getConta(){
+        return getString(R.string.field_conta);
+    }
     private String getNumeroTelefoneField(){
         return getString(R.string.field_numero_telefone);
     }

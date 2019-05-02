@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:id="@+id/activity_login_layout">
 
-    <fragment android:name="mz.co.mm_consultoria.mbelamova.fragments.MainFragment"
+    <fragment android:name="mz.co.mm_consultoria.mbelamova.fragments.LoginMainFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

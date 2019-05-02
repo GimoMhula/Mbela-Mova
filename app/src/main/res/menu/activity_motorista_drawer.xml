@@ -6,11 +6,11 @@
     <item android:title="@string/title_navega_o">
         <menu>
             <item
-                android:id="@+id/nav_pagina_inicial"
+                android:id="@+id/nav_pagina_inicial_motorista"
                 android:title="@string/menu_pagina_inicial"
                 android:icon="@drawable/ic_home_black_24dp"/>
             <item
-                android:id="@+id/nav_historico"
+                android:id="@+id/nav_historico_motorista"
                 android:title="@string/menu_pagina_hist_rico"
                 android:icon="@drawable/ic_history_black_24dp"/>
         </menu>
@@ -19,15 +19,15 @@
     <item android:title="@string/title_conta">
         <menu>
             <item
-                android:id="@+id/nav_recarregar_mpesa"
+                android:id="@+id/nav_recarregar_mpesa_motorista"
                 android:title="@string/recarregar_conta"
                 android:icon="@drawable/ic_attach_money_black_24dp"/>
             <item
-                android:id="@+id/nav_promocao"
+                android:id="@+id/nav_promocao_motorista"
                 android:title="@string/menu_promo_o"
                 android:icon="@drawable/ic_credit_card_black_24dp"/>
             <item
-                android:id="@+id/nav_configuracao"
+                android:id="@+id/nav_configuracao_motorista"
                 android:title="@string/menu_configura_es"
                 android:icon="@drawable/ic_settings_black_24dp"/>
         </menu>
@@ -36,8 +36,8 @@
     <item android:title="@string/title_boleia">
         <menu>
             <item
-                android:id="@+id/nav_dar_boleia"
-                android:title="@string/menu_dar_boleia"
+                android:id="@+id/nav_pedir_boleia"
+                android:title="@string/menu_pedir_boleia"
                 android:icon="@drawable/ic_directions_car_black_24dp"/>
         </menu>
     </item>

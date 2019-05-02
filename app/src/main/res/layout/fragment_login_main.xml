@@ -85,7 +85,9 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="20dp"
-                android:text="Lembrar"/>
+                android:text="@string/text_lembrar_de_mim"
+                android:checked="true"
+                android:enabled="false"/>
 
             <Button
                 android:layout_width="match_parent"

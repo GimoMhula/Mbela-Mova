@@ -8,26 +8,59 @@
     <string name="viagem_collection">Viagens</string>
     <!--Fields-->
     <string name="field_numero_telefone">numeroTelefone</string>
+    <string name="field_conta">contaPassageiro</string>
 
     <!--SharedPrefs-->
-    <string name="passageiro_numeroTelefone">numeroTelefone</string>
-    <string name="passageiro_nome">nome</string>
-    <string name="passageiro_apelido">apelido</string>
-    <string name="passageiro_saldo_corrente">saldo_corrente</string>
-    <string name="passageiro_data_nascimento">dataNascimento</string>
+    <string name="passageiro_nome">passageiro_nome</string>
+    <string name="passageiro_apelido">passageiro_apelido</string>
     <string name="passageiro_genero">passageiro_genero</string>
+    <string name="passageiro_data_nascimento">passageiro_data_nascimento</string>
+    <string name="passageiro_saldo_corrente">passageiro_saldo_corrente</string>
+    <string name="passageiro_saldo_total">passageiro_saldo_total</string>
+    <string name="passageiro_permitido">passageiro_permitido</string>
+    <string name="passageiro_classificacao">passageiro_classificacao</string>
+    <string name="passageiro_numero_total_viagens">passageiro_numero_total_viagens</string>
+    <string name="passageiro_numeroTelefone">passageiro_numeroTelefone</string>
+    <string name="passageiro_password">passageiro_password</string>
+    <string name="passageiro_document_id">passageiro_document_id</string>
+
+    <string name="caro_combustivel">caro_combustivel</string>
+    <string name="caro_imagem_frontal">caro_imagem_frontal</string>
+    <string name="caro_imagem_dentro">caro_imagem_dentro</string>
+    <string name="caro_cor">caro_cor</string>
+    <string name="caro_matricula">caro_matricula</string>
+    <string name="caro_numeroCilindros">caro_numeroCilindros</string>
+    <string name="caro_lotacao">caro_lotacao</string>
+    <string name="caro_modelo">caro_modelo</string>
+
+    <string name="motorista_id">motorista_id</string>
+    <string name="motorista_localizacao">motorista_localizacao</string>
+    <string name="motorista_caro">motorista_caro</string>
+    <string name="motorista_estado">motorista_estado</string>
+    <string name="motorista_permitido">motorista_permitido</string>
+
+    <!--Registo Carro identificacao-->
+    <string name="text_qual_o_caro_que_voc_ir_dirigir">Qual é o caro que você irá dirigir?</string>
+    <string name="text_o_carro_que_voce_utiliza_ajuda_nos_c_lculos_do_valor_que_o_passsageiro_ir_pagar">O carro que voce utiliza ajudará a determinar o valor que o passsageiro irá pagar.</string>
+    <string name="text_imagem_frontal">Imagem Frontal</string>
+    <string name="text_imagem_do_interior">Imagem do interior</string>
+
+    <!--Registrar novo passageiro-->
+    <string name="text_quem_voc">Quem é você?</string>
+    <string name="text_os_motoristas_confirmar_o_sua_presen_a_quando_eles_forem_acionados">Os motoristas confirmarão sua presença quando eles forem acionados</string>
+    <string name="text_qual_o_seu_n_mero_de_telefone">Qual é o seu número de telefone?</string>
+    <string name="text_o_seu_n_mero_ser_utilizado_para_iniciar_a_sess_o_e_permitir_o_recarregamento_do_seu_saldo_no_mpesa">O seu número será utilizado para iniciar a sessão e permitir o recarregamento do seu saldo no mpesa</string>
+    <string name="text_registro_falha">Falha no registo. Por favor, tente novamente.</string>
+    <string name="text_login_falha">Falha no login. Por favor, tente novamente.</string>
 
     <!--Login Activity-->
     <string name="text_n_mero_de_telefone">Número de telefone</string>
     <string name="text_palavra_passe">Palavra-passe</string>
     <string name="text_entrar">Entrar</string>
     <string name="text_ainda_n_o_tem_uma_conta">Ainda não tem uma conta?</string>
-    <string name="text_qual_o_seu_n_mero_de_telefone">Qual é o seu número de telefone?</string>
-    <string name="text_o_seu_n_mero_ser_utilizado_para_iniciar_a_sess_o_e_permitir_o_recarregamento_do_seu_saldo_no_mpesa">O seu número será utilizado para iniciar a sessão e permitir o recarregamento do seu saldo no mpesa</string>
     <string name="text_apelido">Apelido</string>
     <string name="text_nome">Nome</string>
-    <string name="text_quem_voc">Quem é você?</string>
-    <string name="text_os_motoristas_confirmar_o_sua_presen_a_quando_eles_forem_acionados">Os motoristas confirmarão sua presença quando eles forem acionados</string>
+    <string name="text_lembrar_de_mim">Lembrar de mim</string>
 
     <!--Errors-->
     <string name="numero_telefone_invalido">Número de telefone inválido.</string>
@@ -35,31 +68,21 @@
     <string name="status_verification_succeeded">Verificação sucedida.</string>
     <string name="status_sign_in_failed">O inicio de sessão falhou.</string>
     <string name="cannot_be_empty">Não pode estar vazio.</string>
-
-    <string name="text_registro_falha">Falha no registo. Por favor, tente novamente.</string>
-    <string name="text_login_falha">Falha no login. Por favor, tente novamente.</string>
-
-
     <string name="no_internet_conection">Sem conexão a internet.</string>
     <string name="text_loading">A carregar...</string>
 
     <!--NavDrawer-->
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="menu_pagina_inicial">Página inicial</string>
+    <string name="menu_promo_o">Promoção</string>
+    <string name="menu_configura_es">Configurações</string>
+    <string name="menu_pedir_boleia">Pedir boleia</string>
+    <string name="menu_pagina_hist_rico">Histórico</string>
+    <string name="recarregar_conta">Recarregar</string>
+    <string name="title_navega_o">Navegação</string>
+    <string name="title_conta">Conta</string>
+    <string name="title_boleia">Boleia</string>
+    <string name="menu_dar_boleia">Dar boleia</string>
 
-    <string name="title_activity_nav">NavActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
 </resources>

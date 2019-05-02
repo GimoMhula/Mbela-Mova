@@ -15,6 +15,7 @@ import mz.co.mm_consultoria.mbelamova.R;
 import mz.co.mm_consultoria.mbelamova.managers.EditTextManager;
 import mz.co.mm_consultoria.mbelamova.managers.FragmentManager;
 import mz.co.mm_consultoria.mbelamova.managers.SharedPreferencesManager;
+import mz.co.mm_consultoria.mbelamova.models.ContaPassageiro;
 import mz.co.mm_consultoria.mbelamova.models.Passageiro;
 
 public class RegistoDadosFragment extends Fragment implements View.OnClickListener{
@@ -52,7 +53,7 @@ public class RegistoDadosFragment extends Fragment implements View.OnClickListen
         fab.setOnClickListener(this);
     }
 
-    public void populateDataSpinner(View view){
+    private void populateDataSpinner(View view){
         generoSpinner = view.findViewById(R.id.spinner_registo_dados_genero);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getView().getContext(), R.array.genero, R.layout.spinner_genero);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -71,8 +72,8 @@ public class RegistoDadosFragment extends Fragment implements View.OnClickListen
                 if(!editTextManager.hasEmptyFields(nome, apelido)){
                     String dataNascimento = dateSpinner.getDayOfMonth()+"/"+dateSpinner.getMonth()+"/"+dateSpinner.getYear();
                     Passageiro passageiro  = new Passageiro(editTextManager.getEditTextString(nome), editTextManager.getEditTextString(apelido), generoSpinner.getSelectedItem().toString(), dataNascimento);
-                    sharedPreferencesManager.adicionarPassageiroDados(passageiro);
-                    fragmentManager.replaceCurrentFragment(getActivity().getSupportFragmentManager(), new RegistoContaFragment(), R.id.activity_login_layout);
+                    sharedPreferencesManager.adicionarPassageiro(passageiro);
+                    fragmentManager.replaceCurrentFragmentBackStack(getActivity().getSupportFragmentManager(), new RegistoContaFragment(), R.id.activity_login_layout);
                 }
                 break;
         }

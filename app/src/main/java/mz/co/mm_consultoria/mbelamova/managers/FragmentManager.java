@@ -13,10 +13,17 @@ public class FragmentManager {
         this.context=context;
     }
 
-    public void replaceCurrentFragment(android.support.v4.app.FragmentManager fragmentManager, Fragment fragment, int fragment_container_id){
+    public void replaceCurrentFragmentBackStack(android.support.v4.app.FragmentManager fragmentManager, Fragment fragment, int fragment_container_id){
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(fragment_container_id, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
+    public void replaceCurrentFragment(android.support.v4.app.FragmentManager fragmentManager, Fragment fragment, int fragment_container_id){
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(fragment_container_id, fragment);
+        transaction.commit();
+    }
+
 }

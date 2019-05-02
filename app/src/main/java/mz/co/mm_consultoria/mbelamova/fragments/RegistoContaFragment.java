@@ -1,19 +1,21 @@
 package mz.co.mm_consultoria.mbelamova.fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import android.support.annotation.RequiresApi;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 
 import mz.co.mm_consultoria.mbelamova.R;
 import mz.co.mm_consultoria.mbelamova.activites.LoginActivity;
@@ -26,11 +28,11 @@ import mz.co.mm_consultoria.mbelamova.models.ContaPassageiro;
 import mz.co.mm_consultoria.mbelamova.models.Passageiro;
 
 public class RegistoContaFragment extends ModelOnlineFragment implements View.OnClickListener{
-    private FragmentManager fragmentManager;
     private View fab;
-    private EditTextManager editTextManager;
     private EditText numeroTelefone;
     private EditText palavra_passe;
+    private FragmentManager fragmentManager;
+    private EditTextManager editTextManager;
     private DatabaseManager databaseManager;
     private SharedPreferencesManager sharedPreferencesManager;
 
@@ -38,14 +40,16 @@ public class RegistoContaFragment extends ModelOnlineFragment implements View.On
         fragmentManager = new FragmentManager(getContext());
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         editTextManager = new EditTextManager(getContext());
         sharedPreferencesManager = new SharedPreferencesManager(getContext());
         databaseManager = new DatabaseManager(getContext());
-        
+
         numeroTelefone = view.findViewById(R.id.edit_text_registo_conta_numero);
+
         palavra_passe = view.findViewById(R.id.edit_text_registo_conta_password);
 
         fab = view.findViewById(R.id.fab_registo_conta);
@@ -68,31 +72,33 @@ public class RegistoContaFragment extends ModelOnlineFragment implements View.On
             case R.id.fab_registo_conta:
                 if(!editTextManager.hasEmptyFields(numeroTelefone, palavra_passe)){
                     ContaPassageiro contaPassageiro = new ContaPassageiro(editTextManager.getEditTextInteger(numeroTelefone), editTextManager.getEditTextString(palavra_passe));
-                    sharedPreferencesManager.adicionarPassageiroConta(contaPassageiro);
-
-                    if(hasInternetConnection()){
-                        Passageiro passageiro = sharedPreferencesManager.getPassageiro();
-                        loading();
-                        databaseManager.addPassageiro(passageiro)
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        startActivityByClass(MainActivity.class);
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        sharedPreferencesManager.clearSharedPreferences();
-                                        showMessage(getString(R.string.text_registro_falha));
-                                        startActivityByClass(LoginActivity.class);
-                                    }
-                                });
-                    }else {
-                        showMessage(getString(R.string.no_internet_conection));
-                    }
+                    startRegistoConta(contaPassageiro);
                 }
                 break;
+        }
+    }
+
+    private void startRegistoConta(ContaPassageiro contaPassageiro) {
+        sharedPreferencesManager.adicionarPassageiroConta(contaPassageiro);
+        if(hasInternetConnection()){
+            Passageiro passageiro = sharedPreferencesManager.getNewPassageiro();
+            loading();
+            databaseManager.addNewPassageiro(passageiro).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                @Override
+                public void onSuccess(DocumentReference documentReference) {
+                    sharedPreferencesManager.adicionarPassageiroDocumentId(documentReference.getId());
+                    startActivityByClass(MainActivity.class);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    sharedPreferencesManager.clearSharedPreferences();
+                    showMessage(getString(R.string.text_registro_falha));
+                    startActivityByClass(LoginActivity.class);
+                }
+            });
+        }else {
+            showMessage(getString(R.string.no_internet_conection));
         }
     }
 

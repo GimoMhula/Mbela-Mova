@@ -1,5 +1,7 @@
 package mz.co.mm_consultoria.mbelamova.models;
 
+import com.google.firebase.firestore.DocumentReference;
+
 public class Passageiro {
     private ContaPassageiro contaPassageiro;
     private String nome;
