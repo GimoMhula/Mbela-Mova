@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,8 @@ import mz.co.mm_consultoria.mbelamova.models.Passageiro;
 public class MainActivity extends FragmentedActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private SharedPreferencesManager manager;
+    private ImageView fotoPerfil;
+    private TextView textView;
     private TextView nome_completo;
     private TextView saldo_corrente;
     private DatabaseManager databaseManager;
@@ -60,6 +63,8 @@ public class MainActivity extends FragmentedActivity
         nome_completo.setText(passageiro.getNome()+" "+passageiro.getApelido());
         saldo_corrente = headerView.findViewById(R.id.nav_header_saldo_corrente);
         saldo_corrente.setText("Saldo: "+passageiro.getSaldo_corrente()+" MT");
+
+
     }
 
     @Override

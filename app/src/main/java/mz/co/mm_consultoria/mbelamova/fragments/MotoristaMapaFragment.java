@@ -40,9 +40,9 @@ public class MotoristaMapaFragment extends Fragment implements View.OnClickListe
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        mapView = (MapView) view.findViewById(R.id.mapa_motorista);
-//        mapView.onCreate(savedInstanceState);
-//        mapView.getMapAsync(this);
+        mapView = (MapView) view.findViewById(R.id.mapa_motorista);
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
     }
 
     @Override

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -28,6 +29,7 @@ public class RegistoDadosFragment extends Fragment implements View.OnClickListen
     private FloatingActionButton fab;
     private EditTextManager editTextManager;
     private SharedPreferencesManager sharedPreferencesManager;
+    private Button foto_perfil_button;
 
     public RegistoDadosFragment() {
         fragmentManager = new FragmentManager(getContext());
@@ -51,6 +53,7 @@ public class RegistoDadosFragment extends Fragment implements View.OnClickListen
         dateSpinner = view.findViewById(R.id.date_picker_registo_dados_data_nascimento);
         fab = view.findViewById(R.id.fab_registo_dados);
         fab.setOnClickListener(this);
+        foto_perfil_button = (Button)view.findViewById(R.id.button_foto_perfil);
     }
 
     private void populateDataSpinner(View view){

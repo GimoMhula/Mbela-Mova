@@ -90,14 +90,38 @@
                     android:textColor="@android:color/black"
                     />
 
-                <Spinner
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:id="@+id/spinner_registo_dados_genero">
-                </Spinner>
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:text="Género:"
+                        android:textColor="@android:color/black"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:id="@+id/spinner_registo_dados_genero">
+                    </Spinner>
 
+                </LinearLayout>
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Data de nascimento"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                />
 
             <DatePicker
                 android:layout_width="match_parent"
@@ -106,6 +130,13 @@
                 android:calendarViewShown="false"
                 android:id="@+id/date_picker_registo_dados_data_nascimento">
             </DatePicker>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Foto de perfil"
+                android:layout_gravity="center"
+                android:id="@+id/button_foto_perfil"/>
         </LinearLayout>
     </ScrollView>
 

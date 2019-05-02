@@ -116,8 +116,14 @@ public class SharedPreferencesManager {
             putData(getPassageiroTotalViagens(), passageiro.getNumeroTotalViagens());
         } catch (Exception e) {
         }
+        try {
+            putData(getPassageiroFotoPerfil(), passageiro.getFotoPerfil());
+        } catch (Exception e) {
+        }
         editorApply();
     }
+
+
     public void adicionarPassageiroConta(ContaPassageiro contaPassageiro) {
         try {
             putData(getPassageiroNumeroTelefone(), contaPassageiro.getNumeroTelefone());
@@ -226,6 +232,7 @@ public class SharedPreferencesManager {
     private String getPassageiroNome() {
         return getString(R.string.passageiro_nome);
     }
+    private String getPassageiroFotoPerfil() {return  getString(R.string.passageiro_foto_perfil);}
     private String getPassageiroApelido() {
         return getString(R.string.passageiro_apelido);
     }

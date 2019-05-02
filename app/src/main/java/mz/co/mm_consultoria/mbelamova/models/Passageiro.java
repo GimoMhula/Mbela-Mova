@@ -8,6 +8,7 @@ public class Passageiro {
     private String apelido;
     private String genero;
     private String dataNascimento;
+    private String fotoPerfil;
 
     private double saldo_corrente;
     private double saldo_total;
@@ -26,12 +27,13 @@ public class Passageiro {
         this.dataNascimento = dataNascimento;
     }
 
-    public Passageiro(ContaPassageiro contaPassageiro, String nome, String apelido, String genero, String dataNascimento, double saldo_corrente, double saldo_total, boolean permitido, double classificacao, int numeroTotalViagens) {
+    public Passageiro(ContaPassageiro contaPassageiro, String nome, String apelido, String genero, String dataNascimento, String fotoPerfil, double saldo_corrente, double saldo_total, boolean permitido, double classificacao, int numeroTotalViagens) {
         this.contaPassageiro = contaPassageiro;
         this.nome = nome;
         this.apelido = apelido;
         this.genero = genero;
         this.dataNascimento = dataNascimento;
+        this.fotoPerfil = fotoPerfil;
         this.saldo_corrente = saldo_corrente;
         this.saldo_total = saldo_total;
         this.permitido = permitido;
@@ -77,6 +79,14 @@ public class Passageiro {
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public String getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(String fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
     }
 
     public double getSaldo_corrente() {

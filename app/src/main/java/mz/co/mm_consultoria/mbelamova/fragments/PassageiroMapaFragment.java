@@ -3,6 +3,7 @@ package mz.co.mm_consultoria.mbelamova.fragments;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -26,6 +27,7 @@ public class PassageiroMapaFragment extends Fragment implements View.OnClickList
     private GoogleMap map;
     private Boolean mLocationPermissionGranted;
     private GoogleApiClient mGoogleApiClient;
+    private View mDecorView;
 
     public PassageiroMapaFragment() {
         this.mLocationPermissionGranted=false;
@@ -135,4 +137,5 @@ public class PassageiroMapaFragment extends Fragment implements View.OnClickList
     public void onLocationChanged(Location location) {
 
     }
+    
 }

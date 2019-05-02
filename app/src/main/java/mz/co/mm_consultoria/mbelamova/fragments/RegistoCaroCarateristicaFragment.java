@@ -72,8 +72,6 @@ public class RegistoCaroCarateristicaFragment extends ModelOnlineFragment implem
         databaseManager.addNewCaro(sharedPreferencesManager.getCarro()).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
-                Passageiro passageiro = sharedPreferencesManager.getPassageiro();
-
                 databaseManager.addNewMotorista(addMotoristaToSharedPrefs(documentReference)).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
