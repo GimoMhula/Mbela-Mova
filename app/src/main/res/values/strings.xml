@@ -9,6 +9,7 @@
     <!--Fields-->
     <string name="field_numero_telefone">numeroTelefone</string>
     <string name="field_conta">contaPassageiro</string>
+    <string name="field_estado">estado</string>
 
     <!--SharedPrefs-->
     <string name="passageiro_nome">passageiro_nome</string>
@@ -77,6 +78,7 @@
     <string name="menu_configura_es">Configurações</string>
     <string name="menu_pedir_boleia">Pedir boleia</string>
     <string name="menu_pagina_hist_rico">Histórico</string>
+    <string name="menu_meus_caros">Meus caros</string>
     <string name="recarregar_conta">Recarregar</string>
     <string name="title_navega_o">Navegação</string>
     <string name="title_conta">Conta</string>
@@ -85,4 +87,5 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
 </resources>

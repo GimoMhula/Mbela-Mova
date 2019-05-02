@@ -1,6 +1,5 @@
 package mz.co.mm_consultoria.mbelamova.activites;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
@@ -17,6 +16,7 @@ import android.widget.Toast;
 
 import mz.co.mm_consultoria.mbelamova.R;
 import mz.co.mm_consultoria.mbelamova.fragments.PassageiroMapaFragment;
+import mz.co.mm_consultoria.mbelamova.managers.DatabaseManager;
 import mz.co.mm_consultoria.mbelamova.managers.SharedPreferencesManager;
 import mz.co.mm_consultoria.mbelamova.models.Passageiro;
 
@@ -25,6 +25,7 @@ public class MainActivity extends FragmentedActivity
     private SharedPreferencesManager manager;
     private TextView nome_completo;
     private TextView saldo_corrente;
+    private DatabaseManager databaseManager;
 
     public MainActivity() {}
 
@@ -39,6 +40,7 @@ public class MainActivity extends FragmentedActivity
         Toolbar toolbar = findViewById(R.id.toolbar_passageiro);
         setSupportActionBar(toolbar);
         manager = new SharedPreferencesManager(getApplicationContext());
+        databaseManager = new DatabaseManager(getApplicationContext());
         setupNavDrawer(toolbar);
         displayFragment(new PassageiroMapaFragment(), R.id.content_main_passageiros_layout);
     }
@@ -104,6 +106,7 @@ public class MainActivity extends FragmentedActivity
                 if(manager.getCarro().getMatricula()==null){
                     startActivity(new Intent(getApplicationContext(), RegistoCaroActivity.class));
                 }else{
+                    databaseManager.changeMotoristaEstado(true);
                     startActivityByClass(MotoristaActivity.class);
                 }
                 break;

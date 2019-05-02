@@ -18,12 +18,14 @@ import mz.co.mm_consultoria.mbelamova.models.Motorista;
 import mz.co.mm_consultoria.mbelamova.models.Passageiro;
 
 public class DatabaseManager {
+    private final SharedPreferencesManager sharedPreferencesManager;
     private Context context;
     private FirebaseFirestore db;
 
     public DatabaseManager(Context context){
         this.context=context;
         this.db= FirebaseFirestore.getInstance();
+        sharedPreferencesManager = new SharedPreferencesManager(context);
     }
 
     //Set objects
@@ -42,15 +44,24 @@ public class DatabaseManager {
     }
 
     public DocumentReference getPassageiroOnlineDocumentReference(){
-        SharedPreferencesManager sharedPreferencesManager = new SharedPreferencesManager(context);
         return db.collection(getPassageirosCollection()).document(sharedPreferencesManager.getPassageiroDocumentIdSharedPrefs());
     }
 
-    public void changeMotoristaEstado(){
-        SharedPreferencesManager sharedPreferencesManager = new SharedPreferencesManager(context);
-        Motorista motorista = new Motorista();
-        motorista.setEstado(false);
-        db.collection(getMotoristaCollection()).document(sharedPreferencesManager.getMotoristaDocumentIdSharedPrefs()).set(motorista, SetOptions.merge());
+    public void changeMotoristaEstado(boolean estado){
+        DocumentReference motoristaRef = db.collection(getMotoristaCollection()).document(sharedPreferencesManager.getMotoristaDocumentIdSharedPrefs());
+        motoristaRef.update(context.getString(R.string.field_estado), estado)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //sucesso
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        //falhou
+                    }
+                });
     }
 
     //AUXILIO

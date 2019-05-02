@@ -1,6 +1,5 @@
 package mz.co.mm_consultoria.mbelamova.activites;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
@@ -98,7 +97,7 @@ public class MotoristaActivity extends FragmentedActivity
             case R.id.nav_configuracao_motorista:
                 break;
             case R.id.nav_pedir_boleia:
-                databaseManager.changeMotoristaEstado();
+                databaseManager.changeMotoristaEstado(false);
                 startActivityByClass(MainActivity.class);
                 break;
         }
