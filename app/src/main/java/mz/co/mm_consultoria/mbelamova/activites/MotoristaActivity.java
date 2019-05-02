@@ -56,6 +56,9 @@ public class MotoristaActivity extends FragmentedActivity
         nome_completo.setText(passageiro.getNome()+" "+passageiro.getApelido());
         saldo_corrente = headerView.findViewById(R.id.nav_header_saldo_corrente_motorista);
         saldo_corrente.setText("Saldo: "+passageiro.getSaldo_corrente()+" MT");
+        TextView view = headerView.findViewById(R.id.text_view_motorista_placeholder);
+        String duas_primeiras_nome = passageiro.getNome().substring(0,1)+passageiro.getApelido().substring(0,1);
+        view.setText(duas_primeiras_nome.toUpperCase());
     }
 
     @Override

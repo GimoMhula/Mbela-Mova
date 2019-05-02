@@ -2,18 +2,16 @@ package mz.co.mm_consultoria.mbelamova.activites;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.MenuItem;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import mz.co.mm_consultoria.mbelamova.R;
 import mz.co.mm_consultoria.mbelamova.fragments.PassageiroMapaFragment;
@@ -63,8 +61,9 @@ public class MainActivity extends FragmentedActivity
         nome_completo.setText(passageiro.getNome()+" "+passageiro.getApelido());
         saldo_corrente = headerView.findViewById(R.id.nav_header_saldo_corrente);
         saldo_corrente.setText("Saldo: "+passageiro.getSaldo_corrente()+" MT");
-
-
+        TextView view = headerView.findViewById(R.id.text_view_passageiro_placeholder);
+        String duas_primeiras_nome = passageiro.getNome().substring(0,1)+passageiro.getApelido().substring(0,1);
+        view.setText(duas_primeiras_nome.toUpperCase());
     }
 
     @Override

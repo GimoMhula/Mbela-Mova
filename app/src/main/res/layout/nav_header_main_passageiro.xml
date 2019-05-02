@@ -13,12 +13,13 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <TextView
-        android:id="@+id/text_view_motorista_placeholder"
+        android:id="@+id/text_view_passageiro_placeholder"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:gravity="center"
         android:background="@drawable/circle"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:textSize="30sp"/>
 
     <ImageView
         android:layout_width="70dp"
