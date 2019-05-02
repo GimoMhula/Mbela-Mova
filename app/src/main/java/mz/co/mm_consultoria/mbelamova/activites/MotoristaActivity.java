@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.widget.TextView;
 
 import mz.co.mm_consultoria.mbelamova.R;
+import mz.co.mm_consultoria.mbelamova.fragments.MotoristaMapaFragment;
 import mz.co.mm_consultoria.mbelamova.managers.DatabaseManager;
 import mz.co.mm_consultoria.mbelamova.managers.SharedPreferencesManager;
 import mz.co.mm_consultoria.mbelamova.models.Passageiro;
@@ -37,6 +38,7 @@ public class MotoristaActivity extends FragmentedActivity
         manager = new SharedPreferencesManager(getApplicationContext());
         databaseManager = new DatabaseManager(getApplicationContext());
         setupNavDrawer(toolbar);
+        displayFragment(new MotoristaMapaFragment(), R.id.content_motorista_layout);
     }
 
     private void setupNavDrawer(Toolbar toolbar) {

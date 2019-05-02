@@ -116,5 +116,4 @@ public class MainActivity extends FragmentedActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 }

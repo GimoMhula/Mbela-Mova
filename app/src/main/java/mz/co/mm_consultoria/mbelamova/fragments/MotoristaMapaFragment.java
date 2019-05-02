@@ -11,37 +11,38 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+
 import mz.co.mm_consultoria.mbelamova.R;
 
-public class PassageiroMapaFragment extends Fragment implements View.OnClickListener, OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener,
-        GoogleApiClient.ConnectionCallbacks, com.google.android.gms.location.LocationListener{
-
+public class MotoristaMapaFragment extends Fragment implements View.OnClickListener, OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener,
+        GoogleApiClient.ConnectionCallbacks, com.google.android.gms.location.LocationListener {
     private MapView mapView;
     private GoogleMap map;
     private Boolean mLocationPermissionGranted;
     private GoogleApiClient mGoogleApiClient;
 
-    public PassageiroMapaFragment() {
-        this.mLocationPermissionGranted=false;
+    public MotoristaMapaFragment() {
+        this.mLocationPermissionGranted = false;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_passageiro_main, container, false);
+        return inflater.inflate(R.layout.fragment_motorista_main, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mapView = (MapView) view.findViewById(R.id.mapa_passageiro);
-        mapView.onCreate(savedInstanceState);
-        mapView.getMapAsync(this);
+//        mapView = (MapView) view.findViewById(R.id.mapa_motorista);
+//        mapView.onCreate(savedInstanceState);
+//        mapView.getMapAsync(this);
     }
 
     @Override
@@ -51,7 +52,7 @@ public class PassageiroMapaFragment extends Fragment implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
         }
     }
 
@@ -64,11 +65,10 @@ public class PassageiroMapaFragment extends Fragment implements View.OnClickList
                 return;
             }
             buildGoogleApiClient();
-            // mMap.setMyLocationEnabled(true);
             map.setMyLocationEnabled(true);
             map.setOnMyLocationClickListener(new GoogleMap.OnMyLocationClickListener() {
                 @Override
-                public void onMyLocationClick(Location location) {
+                public void onMyLocationClick(@NonNull Location location) {
 //                    Toast.makeText(ClientMapActivity.this, "Voce", Toast.LENGTH_SHORT).show();
                 }
             });
@@ -135,4 +135,5 @@ public class PassageiroMapaFragment extends Fragment implements View.OnClickList
     public void onLocationChanged(Location location) {
 
     }
+
 }

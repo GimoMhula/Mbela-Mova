@@ -88,4 +88,6 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!--Mapas-->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBp4X0A2X8gXF3stojYMzvyBsUhw7BY5pg</string>
 </resources>
